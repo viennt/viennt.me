@@ -42,13 +42,9 @@ Let’s grab all the dependencies we will need for the setup in `package.json`
         "@babel/plugin-proposal-class-properties": "^7.16.7",
         "@babel/plugin-transform-runtime": "7.13.15",
         "@babel/preset-env": "7.13.15",
-        "@shopware-ag/admin-extension-sdk": "^0.0.47",
         "@shopware-ag/jest-preset-sw6-admin": "^2.0.1",
-        "@testing-library/jest-dom": "5.13.0",
         "@vue/test-utils": "1.1.0",
-        "jest": "26.4.2",
-        "jest-fail-on-console": "2.0.4",
-        "vue": "2.6.14"
+        "jest": "26.4.2"
     }
 }
 ```
@@ -56,10 +52,6 @@ Let’s grab all the dependencies we will need for the setup in `package.json`
 @shopware-ag/jest-preset-sw6-admin
 
 > Default Jest preset for Shopware 6 administration development.
-
-@shopware-ag/admin-extension-sdk
-
-> The Admin Extension SDK can be used by Shopware 6 apps and plugins. This library allows them to extend the administration with custom functionality.
 
 @vue/test-utils
 
@@ -89,6 +81,7 @@ process.env.ADMIN_PATH = process.env.ADMIN_PATH || ADMIN_PATH;
 
 module.exports = {
     preset: '@shopware-ag/jest-preset-sw6-admin',
+
     globals: {
         adminPath: process.env.ADMIN_PATH,
     },
@@ -99,6 +92,7 @@ module.exports = {
 
     moduleNameMapper: {
         '^plugin-admin(.*)$': '<rootDir>$1',
+        '\@vue/test-utils': '<rootDir>/node_modules/@vue/test-utils',
         '../../_mocks_/entity-schema.json': '<rootDir>/test/_mocks_/entity-schema.json',
     },
 
