@@ -85,7 +85,7 @@ protected function execute(InputInterface $input, OutputInterface $output): int
 }
 ```
 
-## Style the command
+## Styling the command
 
 **Title**
 
