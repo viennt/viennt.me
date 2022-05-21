@@ -12,12 +12,12 @@ Because Shopware 6 is based on the Symfony framework, it also has its Console av
     ├── Command
     │   └── DemodataCommand.php
     │
-  	├── Generator
+    ├── Generator
     │   └── ArticleGenerator.php
     │
-  	└── Resources
-		  	└── config
-		        └── services.xml
+    └── Resources
+        └── config
+            └── services.xml
 ```
 
 ## Registering the command
