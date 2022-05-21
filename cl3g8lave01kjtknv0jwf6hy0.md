@@ -4,7 +4,7 @@ In this blog post, you will learn how to create a custom command in a Shopware 6
 
 Because Shopware 6 is based on the Symfony framework, it also has its Console available. So you can do most of the stuff you need to do while developing Shopware 6 plugins.
 
-# ****Folder structure****
+## Folder structure
 
 ```jsx
 <pluginRoot>
@@ -20,8 +20,7 @@ Because Shopware 6 is based on the Symfony framework, it also has its Console av
 		        └── services.xml
 ```
 
-# Registering the command
-
+## Registering the command
 To register a new command, just add it to your plugin's `services.xml` and specify the `console.command` tag:
 
 ```xml
@@ -31,8 +30,7 @@ To register a new command, just add it to your plugin's `services.xml` and speci
 </service>
 ```
 
-# Configuring the command
-
+## Configuring the command
 Your command's class should extend from the `Symfony\Component\Console\Command\Command`
  class:
 
@@ -87,9 +85,9 @@ protected function execute(InputInterface $input, OutputInterface $output): int
 }
 ```
 
-# Style the command
+## Style the command
 
-### Title
+**Title**
 
 It displays the given string as the command title. This method is meant to be used only once in a given command, but nothing prevents you from using it repeatedly:
 
@@ -104,7 +102,7 @@ Article Data Generator
 ======================
 ```
 
-### Table
+**Table**
 
 It displays the given array of headers and rows as a compact table:
 
@@ -126,7 +124,7 @@ The console output should be:
 ---------------------- ------- --------------------
 ```
 
-### Progress bar
+**Progress bar**
 
 When executing longer-running commands, it may be helpful to show progress information, which updates as your command runs:
 
@@ -139,7 +137,7 @@ Generating 1000 items for article
 ! [NOTE] Took 6.1 seconds
 ```
 
-**Start progress bar**
+***Start progress bar***
 
 It displays a progress bar with several steps equal to the argument passed to the method (don't progress bar's length of the progress bar is unknown).
 
@@ -151,7 +149,7 @@ $context->getConsole()->progressStart();
 $context->getConsole()->progressStart(100);
 ```
 
-**Advance progress bar**
+***Advance progress bar***
 
 It makes the progress bar advance the given number of steps.
 
@@ -163,7 +161,7 @@ $context->getConsole()->progressAdvance();
 $context->getConsole()->progressAdvance(10);
 ```
 
-**Finish progress bar**
+***Finish progress bar***
 
 It finishes the progress bar (filling up all the remaining steps when its length is known).
 
@@ -171,7 +169,7 @@ It finishes the progress bar (filling up all the remaining steps when its length
 $context->getConsole()->progressFinish();
 ```
 
-# Creating the data generator
+## Creating the data generator
 
 1. To register a new generator, add it to your plugin's `services.xml` and specify the `shopware.demodata_generator` tag:
 
@@ -208,7 +206,7 @@ public function generate(int $numberOfItems, DemodataContext $context, array $op
 }
 ```
 
-# Running the command
+## Running the command
 
 ```bash
 bin/console article:demodata 1000
@@ -216,7 +214,7 @@ bin/console article:demodata 1000
 
 ---
 
-# Complete classes and XML file
+## Complete classes and XML file
 
 **DemodataCommand.php**
 
