@@ -46,19 +46,19 @@ class DemodataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-				//
+        //
     }
 }
 ```
 
-1. Let’s start with the name of the command (the part after "bin/console"):
+Let’s start with the name of the command (the part after "bin/console"):
 
 ```php
 // the command description shown when running "php bin/console list"
 protected static $defaultName = 'article:demodata';
 ```
 
-2. You can optionally define a description, help message and the [input options and arguments](https://symfony.com/doc/current/console/input.html)
+You can optionally define a description, help message and the [input options and arguments](https://symfony.com/doc/current/console/input.html)
  by overriding the `configure()` method:
 
 ```php
@@ -68,8 +68,7 @@ protected function configure(): void
 }
 ```
 
-3. Put in the `execute()` method the code to create demo data:
-
+Put in the `execute()` method the code to create demo data:
 This method must return an integer number with the "exit status code" of the command. You can also use these constants to make code more readable:
 
 - `Command::SUCCESS` if there was no problem running the command.
@@ -137,9 +136,7 @@ Generating 1000 items for article
 ! [NOTE] Took 6.1 seconds
 ```
 
-***Start progress bar***
-
-It displays a progress bar with several steps equal to the argument passed to the method (don't progress bar's length of the progress bar is unknown).
+Start progress bar: It displays a progress bar with several steps equal to the argument passed to the method (don't progress bar's length of the progress bar is unknown).
 
 ```php
 // displays a progress bar of unknown length
@@ -149,9 +146,7 @@ $context->getConsole()->progressStart();
 $context->getConsole()->progressStart(100);
 ```
 
-***Advance progress bar***
-
-It makes the progress bar advance the given number of steps.
+Advance progress bar: It makes the progress bar advance the given number of steps.
 
 ```php
 // advances the progress bar 1 step
@@ -161,9 +156,7 @@ $context->getConsole()->progressAdvance();
 $context->getConsole()->progressAdvance(10);
 ```
 
-***Finish progress bar***
-
-It finishes the progress bar (filling up all the remaining steps when its length is known).
+Finish progress bar: It finishes the progress bar (filling up all the remaining steps when its length is known).
 
 ```php
 $context->getConsole()->progressFinish();
@@ -171,8 +164,7 @@ $context->getConsole()->progressFinish();
 
 ## Creating the data generator
 
-1. To register a new generator, add it to your plugin's `services.xml` and specify the `shopware.demodata_generator` tag:
-
+To register a new generator, add it to your plugin's `services.xml` and specify the `shopware.demodata_generator` tag:
 ```xml
 <service id="Sas\BlogModule\Generator\ArticleGenerator">
     <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Write\EntityWriter" />
@@ -182,8 +174,7 @@ $context->getConsole()->progressFinish();
 </service>
 ```
 
-2. Now, we need our generator to know its definition class. This is done by overriding the method `getDefinition()` 
-
+Now, we need our generator to know its definition class. This is done by overriding the method `getDefinition()` 
 ```php
 public function getDefinition(): string
 {
@@ -191,8 +182,7 @@ public function getDefinition(): string
 }
 ```
 
-3. Put in the `generate()` method the code to generate demo data:
-
+Put in the `generate()` method the code to generate demo data:
 ```php
 public function generate(int $numberOfItems, DemodataContext $context, array $options = []): void
 {
