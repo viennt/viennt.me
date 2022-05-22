@@ -188,11 +188,11 @@ public function generate(int $numberOfItems, DemodataContext $context, array $op
 {
     $writeContext = WriteContext::createFromContext($context->getContext());
 
-		$payload = [
-				// an array of articles
+    $payload = [
+        // an array of articles
     ];
 
-		$this->writer->upsert($this->articleDefinition, $payload, $writeContext);
+    $this->writer->upsert($this->articleDefinition, $payload, $writeContext);
 }
 ```
 
@@ -349,19 +349,19 @@ class ArticleGenerator implements DemodataGeneratorInterface
 
     <services>
 
-				<service id="Sas\BlogModule\Command\DemodataCommand">
-				    <argument type="service" id="Shopware\Core\Framework\Demodata\DemodataService"/>
-				    <tag name="console.command"/>
-				</service>
+        <service id="Sas\BlogModule\Command\DemodataCommand">
+            <argument type="service" id="Shopware\Core\Framework\Demodata\DemodataService"/>
+            <tag name="console.command"/>
+        </service>
 
-				<service id="Sas\BlogModule\Generator\ArticleGenerator">
-				    <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Write\EntityWriter" />
-				    <argument type="service" id="Doctrine\DBAL\Connection" />
-				    <argument type="service" id="Sas\BlogModule\Content\Article\ArticleDefinition"/>
-				    <tag name="shopware.demodata_generator"/>
-				</service>
+        <service id="Sas\BlogModule\Generator\ArticleGenerator">
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Write\EntityWriter" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+            <argument type="service" id="Sas\BlogModule\Content\Article\ArticleDefinition"/>
+            <tag name="shopware.demodata_generator"/>
+        </service>
 
-		</services>
+    </services>
 </container>
 ```
 
