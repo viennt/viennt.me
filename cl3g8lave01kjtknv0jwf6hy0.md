@@ -1,4 +1,4 @@
-## Shopware creating CLI command to generate demo data on your entity
+## Shopware custom CLI command to generate demo data on your entity
 
 In this blog post, you will learn how to create a custom command in a Shopware 6 plugin and use it to generate the demo data.
 
