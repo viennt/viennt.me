@@ -51,10 +51,8 @@ class DemodataCommand extends Command
 }
 ```
 
-Let’s start with the name of the command (the part after "bin/console"):
-
+Let’s start with the name of the command (the part after "bin/console"). It's the description shown when running "php bin/console list":
 ```php
-// the command description shown when running "php bin/console list"
 protected static $defaultName = 'article:demodata';
 ```
 
