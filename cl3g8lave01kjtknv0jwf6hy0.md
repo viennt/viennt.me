@@ -162,7 +162,7 @@ Finish progress bar: It finishes the progress bar (filling up all the remaining 
 $context->getConsole()->progressFinish();
 ```
 
-## Creating the data generator
+## Creating the generator
 
 To register a new generator, add it to your plugin's `services.xml` and specify the `shopware.demodata_generator` tag:
 ```xml
