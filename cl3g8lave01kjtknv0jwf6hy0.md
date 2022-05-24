@@ -6,7 +6,7 @@ Because Shopware 6 is based on the Symfony framework, it also has its Console av
 
 ## Folder structure
 
-```jsx
+```javascript
 <pluginRoot>
 └── src
     ├── Command
